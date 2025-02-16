@@ -1,4 +1,8 @@
+from datetime import timedelta
+
 from odoo import fields, models
+from odoo.fields import Datetime
+
 
 class EstateProperty(models.Model):
     _name = "estate.property.test"
@@ -8,10 +12,10 @@ class EstateProperty(models.Model):
     name = fields.Char('Plan Name', required=True, translate=True)
     description = fields.Text()
     postcode = fields.Char()
-    date_availability = fields.Date(copy=False)
+    date_availability = fields.Date(default=Datetime.today()+timedelta(30*3),copy=False)
     expected_price = fields.Float(required=True)
     selling_price = fields.Float(readonly=True, copy=False)
-    bedrooms = fields.Integer()
+    bedrooms = fields.Integer(default=2)
     living_area = fields.Integer()
     facades = fields.Integer()
     garage = fields.Boolean()
@@ -21,4 +25,10 @@ class EstateProperty(models.Model):
         string='Type',
         selection = [('NORTH', 'North'), ('south','South'),('east','East'),('west','West')],
         help = 'Type is used to separate lEADS AND oPPORTUNITIES'
+    )
+    active= fields.Boolean(default=True)
+    state = fields.Selection(default="NEW",
+        string='Type',
+        selection=[('NEW', 'New'), ('OFFER RECEIVED', 'offer received'), ('OFFER ACCEPTED', 'offer accepted'), ('SOLD', 'sold'), ('CANCELLED', 'cancelled')],
+        help='Type is used to separate lEADS AND oPPORTUNITIES'
     )
