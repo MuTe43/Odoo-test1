@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="test_act1" model="ir.actions.act_window">
+        <field name="name">test1</field>
+        <field name="res_model">estate.property.test</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

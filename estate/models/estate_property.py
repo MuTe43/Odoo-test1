@@ -17,6 +17,7 @@ class EstateProperty(models.Model):
     garage = fields.Boolean()
     garden = fields.Boolean()
     garden_area = fields.Integer()
+    testgit = fields.Text()
     garden_orientation = fields.Selection(
         string='Type',
         selection = [('NORTH', 'North'), ('south','South'),('east','East'),('west','West')],
