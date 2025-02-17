@@ -5,4 +5,5 @@
             <menuitem id="test_model_menu_action" action="test_act1"/>
         </menuitem>
     </menuitem>
+
 </odoo>
