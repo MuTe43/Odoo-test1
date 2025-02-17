@@ -21,7 +21,20 @@
             </list>
         </field>
     </record>
-
+    <record id="search_test1" model="ir.ui.view">
+        <field name="name">search.test1</field>
+        <field name="model">estate.property.test</field>
+        <field name="arch" type="xml">
+            <search string="Tests">
+                <field name="name"/>
+                <field name="postcode"/>
+                <field name="expected_price"/>
+                <field name="bedrooms"/>
+                <field name="living_area"/>
+                <field name="facades"/>
+            </search>
+        </field>
+    </record>
     <record id="form_test1" model="ir.ui.view">
         <field name="name">list.test1</field>
         <field name="model">estate.property.test</field>
