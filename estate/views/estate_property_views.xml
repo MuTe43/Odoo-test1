@@ -53,6 +53,9 @@
                     <h1>
                         <field name="name"/>
                     </h1>
+                    <div style="margin-bottom:10px;">
+                    <field name="tag_ids" widget="many2many_tags" string="" />
+                    </div>
                     <group>
                         <group>
                             <field name="postcode"/>
