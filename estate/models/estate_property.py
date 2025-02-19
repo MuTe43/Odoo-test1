@@ -22,13 +22,13 @@ class EstateProperty(models.Model):
     garden = fields.Boolean()
     garden_area = fields.Integer()
     garden_orientation = fields.Selection(
-        string='Type',
+        string='Orientation',
         selection = [('NORTH', 'North'), ('south','South'),('east','East'),('west','West')],
-        help = 'Type is used to separate lEADS AND oPPORTUNITIES'
+        help = 'Garden Orientation'
     )
     active= fields.Boolean(default=True)
     state = fields.Selection(default="NEW",
-        string='Type',
+        string='State',
         selection=[('NEW', 'New'), ('OFFER RECEIVED', 'offer received'), ('OFFER ACCEPTED', 'offer accepted'), ('SOLD', 'sold'), ('CANCELLED', 'cancelled')],
-        help='Type is used to separate lEADS AND oPPORTUNITIES'
+        help='The availability state'
     )
