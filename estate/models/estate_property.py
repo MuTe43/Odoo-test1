@@ -32,3 +32,10 @@ class EstateProperty(models.Model):
         selection=[('NEW', 'New'), ('OFFER RECEIVED', 'offer received'), ('OFFER ACCEPTED', 'offer accepted'), ('SOLD', 'sold'), ('CANCELLED', 'cancelled')],
         help='The availability state'
     )
+
+    def _current_user(self):
+            return self.env.user
+
+    property_type_id = fields.Many2one("estate.property.type", string="Property Type")
+    buyer = fields.Many2one("res.partner", string="Buyer")
+    salesperson = fields.Many2one("res.users", string="Salesman", default=lambda self : self._current_user())
