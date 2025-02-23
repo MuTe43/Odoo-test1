@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<record id="form_test4" model="ir.ui.view">
+        <field name="name">form.test4</field>
+        <field name="model">estate.property.offer</field>
+        <field name="arch" type="xml">
+            <form string="Test" edit="False">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="price"/>
+                            <field name="partner_id"/>
+                            <field name="status"/>
+                        </group>
+                    </group>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+        <record id="list_test4" model="ir.ui.view">
+            <field name="name">list.test4</field>
+            <field name="model">estate.property.offer</field>
+            <field name="arch" type="xml">
+                <list string="Channel">
+                    <field name="price"/>
+                    <field name="partner_id"/>
+                    <field name="status"/>
+                </list>
+            </field>
+        </record>
+
+</odoo>

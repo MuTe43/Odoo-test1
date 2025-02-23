@@ -40,3 +40,4 @@ class EstateProperty(models.Model):
     buyer = fields.Many2one("res.partner", string="Buyer")
     salesperson = fields.Many2one("res.users", string="Salesman", default=lambda self : self._current_user())
     tag_ids = fields.Many2many("estate.property.tag")
+    offer_ids = fields.One2many('estate.property.offer','property_id')
