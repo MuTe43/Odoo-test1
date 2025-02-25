@@ -1,6 +1,6 @@
 from datetime import timedelta
 
-from odoo import fields, models
+from odoo import fields, models, api
 from odoo.fields import Datetime
 
 
@@ -41,3 +41,15 @@ class EstateProperty(models.Model):
     salesperson = fields.Many2one("res.users", string="Salesman", default=lambda self : self._current_user())
     tag_ids = fields.Many2many("estate.property.tag")
     offer_ids = fields.One2many('estate.property.offer','property_id')
+    total_area = fields.Integer(compute="_compute_total")
+    best_price = fields.Float(compute="_calc_best_price")
+
+    @api.depends("living_area","garden_area")
+    def _compute_total(self):
+        for record in self:
+            record.total_area = record.living_area + record.garden_area
+
+    @api.depends("offer_ids.price")
+    def _calc_best_price(self):
+        for record in self:
+            record.best_price = max(record.offer_ids.mapped("price"), default=0.0)
